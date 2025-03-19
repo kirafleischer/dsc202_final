@@ -5,6 +5,8 @@
 - **Tejas Ramesh** (HDSI) - [tramesh@ucsd.edu](mailto:tramesh@ucsd.edu)
 - **Sanchit Goel** (HDSI) - [s5goel@ucsd.edu](mailto:s5goel@ucsd.edu)
 
+## Video
+
 ## Overview 
 We hope to develop an application that can help us gain insights into the film industry by focusing on two main use cases:
 - Movie Recommendations 
