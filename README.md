@@ -16,7 +16,7 @@ We hope to develop an application that can help us gain insights into the film i
   - Determine which collaborations lead to highest-rated films
  
 ## Data
-- Actor and movie data from https://developer.imdb.com/non-commercial-datasets
+- Actor and movie data from the IMDb website: https://developer.imdb.com/non-commercial-datasets
   - This data is imported into PostgreSQL using the table creations from the `imdb_table_creations.sql` file
 - Plot synonpsis data scraped from Wikipedia
 
