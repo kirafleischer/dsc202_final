@@ -10,11 +10,11 @@
 ## Overview 
 We hope to develop an application that can help us gain insights into the film industry by focusing on two main use cases:
 - Movie Recommendations 
-  - Similarity based on genre, determined using a graph database
-  - Similarity based on content, determined using a vector database
+  - Cast & Crew Similarity: Using a graph database to identify films with similar actors, directors, and crew members.
+  - Content-Based Similarity: Leveraging a vector database to recommend films based on shared content features.
 - Modeling Actor-Director Collaborations
-  - Determine which collaborations lead to highest-rated films
- 
+  - Analyzing past collaborations to identify which pairings produce the highest-rated films, offering insights into successful creative partnerships.
+
 ## Data
 - Actor and movie data from the IMDb website: https://developer.imdb.com/non-commercial-datasets
   - This data is imported into PostgreSQL using the table creations from the `imdb_table_creations.sql` file
