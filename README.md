@@ -6,7 +6,7 @@
 - **Sanchit Goel** (HDSI) - [s5goel@ucsd.edu](mailto:s5goel@ucsd.edu)
 
 ## Video
-Link to YouTube video: https://youtu.be/n9SGfQIGpQk
+Link to project video: https://drive.google.com/file/d/1xdwbGdlNUBoWXNUwqNl1ExfdsaTdgoZx/view?usp=drive_link
 
 ## Overview 
 We hope to develop an application that can help us gain insights into the film industry by focusing on two main use cases:
