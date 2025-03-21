@@ -18,10 +18,13 @@ We hope to develop an application that can help us gain insights into the film i
 
 ## Data
 - Actor and movie data from the IMDb website: https://developer.imdb.com/non-commercial-datasets
-  - This data is imported into PostgreSQL using the table creations from the `imdb_table_creations.sql` file
-- Plot synonpsis data scraped from Wikipedia
+  1. To setup PostgreSQL use the table creations from the `imdb_table_creations.sql` file.
+  2. To setup Neo4j use the cypher queries in the `Neo4j_setup_cypher.txt` file.
+- Plot synopsis data scraped from Wikipedia
 
 ## Use Cases
 - Movie Recommendations
+  1. Graph structure based : `Movie Recommendation-Graph based.ipynb`
+     - Run this jupyter notebook to verify our movie recommendation usecase (using PostgreSQL and Neo4j)
 - Modeling Actor-Director Collaborations: `actor-directors.ipynb` 
   - This file contains queries for our second use-case: modeling actor-director collaborations and their associated film ratings. This file also contains additional PostgreSQL queries showing future work we could do into gaining insights about the film industry.
