@@ -1,0 +1,45 @@
+CREATE CONSTRAINT FOR (m:Movie) REQUIRE m.tconst IS UNIQUE;
+CREATE CONSTRAINT FOR (p:Person) REQUIRE p.nconst IS UNIQUE;
+
+
+LOAD CSV WITH HEADERS FROM "file:///title_principals_sample.tsv" AS row
+FIELDTERMINATOR '\t'
+MERGE (m:Movie {tconst: row.tconst})
+MERGE (p:Person {nconst: row.nconst})
+WITH p, m, row  
+CALL apoc.create.relationship(p, row.category, 
+  {job: CASE WHEN row.job = '\N' THEN NULL ELSE row.job END, 
+   characters: CASE WHEN row.characters = '\N' THEN NULL ELSE row.characters END}, 
+  m)
+YIELD rel
+RETURN rel;
+
+
+LOAD CSV WITH HEADERS FROM "file:///title_ratings_sample.tsv" AS row
+FIELDTERMINATOR '\t'
+MATCH (m:Movie {tconst: row.tconst})  
+SET m.averageRating = CASE WHEN row.averageRating = '\N' THEN NULL ELSE toFloat(row.averageRating) END,
+    m.numVotes = CASE WHEN row.numVotes = '\N' THEN NULL ELSE toInteger(row.numVotes) END;
+
+
+LOAD CSV WITH HEADERS FROM "file:///name_basics_sample.tsv" AS row
+FIELDTERMINATOR '\t'
+MATCH (p:Person {nconst: row.nconst})  
+SET p.primaryName = row.primaryName,
+    p.birthYear = CASE WHEN row.birthYear = '\N' THEN NULL ELSE toInteger(row.birthYear) END,
+    p.deathYear = CASE WHEN row.deathYear = '\N' THEN NULL ELSE toInteger(row.deathYear) END,
+    p.primaryProfession = split(row.primaryProfession, ','),
+    p.knownForTitles = split(row.knownForTitles, ',');
+
+
+LOAD CSV WITH HEADERS FROM "file:///title_basics_sample.tsv" AS row
+FIELDTERMINATOR '\t'
+MATCH (m:Movie {tconst: row.tconst})  
+SET m.titleType = row.titleType,
+    m.primaryTitle = row.primaryTitle,
+    m.originalTitle = row.originalTitle,
+    m.isAdult = CASE WHEN row.isAdult = '0' THEN 0 WHEN row.isAdult = '1' THEN 1 ELSE NULL END,
+    m.startYear = CASE WHEN row.startYear = '\N' THEN NULL ELSE toInteger(row.startYear) END,
+    m.endYear = CASE WHEN row.endYear = '\N' THEN NULL ELSE toInteger(row.endYear) END,
+    m.runtimeMinutes = CASE WHEN row.runtimeMinutes = '\N' THEN NULL ELSE toInteger(row.runtimeMinutes) END,
+    m.genres = split(row.genres, ',');  
