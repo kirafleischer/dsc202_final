@@ -26,5 +26,5 @@ We hope to develop an application that can help us gain insights into the film i
 - Movie Recommendations
   1. Graph structure based : `Movie Recommendation-Graph based.ipynb`
      - Run this jupyter notebook to verify our movie recommendation usecase (using PostgreSQL and Neo4j)
-- Modeling Actor-Director Collaborations: `actor-directors.ipynb` 
+- Modeling Actor-Director Collaborations: `actors-directors.ipynb` 
   - This file contains queries for our second use-case: modeling actor-director collaborations and their associated film ratings. This file also contains additional PostgreSQL queries showing future work we could do into gaining insights about the film industry.
